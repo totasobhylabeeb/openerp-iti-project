@@ -1,13 +1,16 @@
 {
-    'name':'project',
-    'version':'1.0',
-    'summary':'iti project openerp data',
-    'description':"for saving warehouse humanresource data",
-    'author':'Ahmed Elsayed, Aya Gebreel Niven Nabeeh , Tahany Sobhy , Fatma Hamam',
-    'website':'http://www.iti.gov.eg',
-    'depends':['base'],
-    'data':['project_view.xml'],
-    'installable':True,
-    'auto_install':False,
-
+    'name':'iti student',
+     'version':'1.0',
+	'summary':'iti students frist version',
+   'website':'http://wwww.iti.gov.eg',
+    'description': 'Basic example of  iti module',
+'auther':'niven nabih',
+    'depends': ['base','hr'],
+'data':[
+	'iti_view.xml',
+ 	'security/iti_security.xml',
+        'security/ir.model.access.csv',
+],
+'installable':True,
+'auto_install':False,
 }
