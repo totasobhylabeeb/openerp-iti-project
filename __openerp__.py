@@ -5,7 +5,7 @@
    'website':'http://wwww.iti.gov.eg',
     'description': 'Basic example of  iti module',
 'auther':'niven-ahmed-aya-tahany-fatma',
-    'depends': ['base','hr','earehouse'],
+    'depends': ['base','hr','warehouse'],
 'data':[
 	'project_view.xml',
  	'security/iti_security.xml',
