@@ -2,71 +2,78 @@
 <openerp>
     <data>
 
-        <record model="ir.ui.view" id="iti_student_form">
+        <record model="ir.ui.view" id="project_subcategory_form">
             <field name="name"></field>
-            <field name="model">iti.student</field>
+            <field name="model">project.subcategory</field>
             <field name="arch" type="xml">
-                <form string="Students" version="7.0">
+                <form string="Subcategories" version="7.0">
                     <sheet>
                         <group>
-                            <field name="picture" widget='image' class="oe_left oe_avatar"/>
-                        </group>
-                        <group>
-                            <group string="Basic Info">
+                            <group>
+
                                 <field name="name"/>
-                                <field name="age"/>
-                                <field name="salary" attrs="{'invisible':[('accepted','=',True)]}"/>
-
+                                <field name="description"/>
+                                <field name="code"/>
 
                             </group>
-                            <group string="Education">
-                                <field name="faculty"/>
-                                <field name="grade"/>
-                                <field name="graduationyear"/>
-                                <field name="department_id"/>
-                                <field name="skills_id" on_change="change_department(skills_id)"/>
+                            <group>
+                                <field name="category_id"/>
+                                <field name="subsubcategory_ids"/>
                             </group>
                         </group>
-                        <notebook>
-                            <page string="Info">
-                                <sheet>
-                                    <group>
-                                        <field name="signature"/>
-                                    </group>
-                                </sheet>
-                            </page>
-                            <page string="Accepted">
-                                <sheet>
-                                    <group>
-                                        <field name="skill"/>
-                                        <field name="accepted"/>
-                                    </group>
-                                </sheet>
 
-
-                            </page>
-                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="iti_student_tree">
+        <record model="ir.ui.view" id="project_subcategory_tree">
             <field name="name"></field>
-            <field name="model">iti.student</field>
+            <field name="model">project.subcategory</field>
             <field name="arch" type="xml">
-                <tree string="Students" version="7.0">
+                <tree string="Subcategories" version="7.0">
                     <field name="name"/>
-                    <field name="age"/>
-                    <field name="salary"/>
-                    <field name="faculty"/>
-                    <field name="grade"/>
-                    <field name="graduationyear"/>
-                    <field name="signature"/>
-                    <field name="skill"/>
-                    <field name="accepted"/>
-                    <field name="department_id"/>
-                    <field name="skills_id"/>
+                    <field name="description"/>
+                    <field name="code"/>
+                    <field name="category_id"/>
+                    <field name="subsubcategory_ids"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="project_subsubCategory_form">
+            <field name="name"></field>
+            <field name="model">project.subsubCategory</field>
+            <field name="arch" type="xml">
+                <form string="Subsubcategories" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="code"/>
+
+                            </group>
+                            <group>
+                                <field name="subcategory_id"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="project_subsubCategory_tree">
+            <field name="name"></field>
+            <field name="model">project.subsubCategory</field>
+            <field name="arch" type="xml">
+                <tree string="Subsubcategories" version="7.0">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="code"/>
+                    <field name="subcategory_id"/>
+
 
                 </tree>
             </field>
@@ -82,81 +89,7 @@
         <menuitem id="assiut_menu" name="Assiut" parent="top_iti"/>
         <menuitem id="student" name="students" parent="assiut_menu" action="iti_student_action"/>
 
-        <record model="ir.ui.view" id="iti_department_form">
-            <field name="name"></field>
-            <field name="model">iti.department</field>
-            <field name="arch" type="xml">
-                <form string="Departments" version="7.0" editable="bottom">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="desc"/>
-                            <field name="students_ids"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        <record model="ir.ui.view" id="iti_department_tree">
-            <field name="name"></field>
-            <field name="model">iti.department</field>
-            <field name="arch" type="xml">
-                <tree string="Department" version="7.0" editable="bottom">
-                    <field name="name"/>
-                    <field name="desc"/>
-                    <field name="students_ids"/>
-                    <field name="skill_id"/>
 
-                </tree>
-            </field>
-        </record>
-        <record id="iti_department_action" model="ir.actions.act_window">
-            <field name="name">ITI Department</field>
-            <field name="res_model">iti.department</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-
-        </record>
-
-        <menuitem id="department" name="department" parent="assiut_menu" action="iti_department_action"/>
-
-        <record model="ir.ui.view" id="iti_skills_form">
-            <field name="name"></field>
-            <field name="model">iti.skills</field>
-            <field name="arch" type="xml">
-                <form string="Skills" version="7.0" editable="bottom">
-                    <sheet>
-                        <group>
-                            <field name="php"/>
-                            <field name="rails"/>
-                            <field name="openerp"/>
-                            <field name="dept_id"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        <record model="ir.ui.view" id="iti_skills_tree">
-            <field name="name"></field>
-            <field name="model">iti.skills</field>
-            <field name="arch" type="xml">
-                <tree string="Skills" version="7.0" editable="bottom">
-                    <field name="php"/>
-                    <field name="rails"/>
-                    <field name="openerp"/>
-
-                </tree>
-            </field>
-        </record>
-        <record id="iti_skills_action" model="ir.actions.act_window">
-            <field name="name">ITI Skills</field>
-            <field name="res_model">iti.skills</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-
-        </record>
-
-        <menuitem id="skill" name="skills" parent="assiut_menu" action="iti_skills_action"/>
     </data>
 </openerp>
 
