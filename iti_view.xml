@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="iti_student_tree">
+            <field name="name">iti.student.tree</field>
+            <field name="model">iti.student</field>
+            <field name="arch" type="xml">
+                <tree string="iti_student">
+                     <field name="pic"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="salary" />
+                    <field name="gender" required="1"/>
+                    <field name="faculty"/>
+                    <field name="grade"/>
+                    <field name="graduation_year"/>
+                    <field name="info"/>
+                    <field name="accept"/>
+                    <field name="check"/>
+                  <field name="department_id"/>
+                      <field name="skills_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+       <record id="iti_student_form" model="ir.ui.view">
+            <field name="name">iti.student.form</field>
+            <field name="model">iti.student</field>
+            <field name="arch" type="xml">
+                <form string="iti student" version="7.0">
+                    <group>
+                    <group string="basic info">
+                         <field name="pic"/>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="salary" attrs="{'invisible': [('gender', '=', 'f')]}"/>
+                         <field name="gender" required="1" />
+                    </group>
+                    <group string="education info">
+                        <field name="faculty"/>
+                        <field name="grade"/>esssss
+                        <field name="graduation_year"/>
+                         <field name="department_id"/>
+                         <field name="skills_ids"/>
+                    </group>
+                    </group>
+                    <notebook>
+                        <page string="info">
+                            <field name="info"/>
+                        </page>
+                        <page string="confirm">
+                             <field name="accept"/>
+                            <field name="check"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="iti_student_action" model="ir.actions.act_window">
+            <field name="name">iti.student.action</field>
+            <field name="res_model">iti.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+ <record model="ir.ui.view" id="iti_department_tree">
+            <field name="name">iti.department.tree</field>
+            <field name="model">iti.department</field>
+            <field name="arch" type="xml">
+                <tree string="iti_student">
+                    <field name="dname"/>
+                    <field name="desc"/>
+                     <field name="student_ids"/>
+                     <field name="skills_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+       <record id="iti_department_form" model="ir.ui.view">
+            <field name="name">iti.department.form</field>
+            <field name="model">iti.department</field>
+            <field name="arch" type="xml">
+                <form string="iti department" version="7.0">
+                    <group string="Department info">
+                        <field name="dname"/>
+                    <field name="desc"/>
+                     <field name="student_ids"/>
+                          <field name="skills_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="iti_department_action" model="ir.actions.act_window">
+            <field name="name">iti.department.action</field>
+            <field name="res_model">iti.department</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="iti_skills_tree">
+            <field name="name">iti.skills.tree</field>
+            <field name="model">iti.skills</field>
+            <field name="arch" type="xml">
+                <tree string="iti_student">
+                    <field name="name" required="1"/>
+                    <field name="desc"/>
+                     <field name="department_skills_ids"/>
+                     <field name="student_skills_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+       <record id="iti_skills_form" model="ir.ui.view">
+            <field name="name">iti.skills.form</field>
+            <field name="model">iti.skills</field>
+            <field name="arch" type="xml">
+                <form string="iti skills" version="7.0">
+                    <group string="skills info">
+                        <field name="name" required="1"/>
+                    <field name="desc"/>
+                          <field name="department_skills_ids"/>
+                         <field name="student_skills_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="iti_skills_action" model="ir.actions.act_window">
+            <field name="name">iti.skills.action</field>
+            <field name="res_model">iti.skills</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="iti_manger_tree">
+            <field name="name">iti.manger.tree</field>
+            <field name="model">iti.manger</field>
+            <field name="arch" type="xml">
+                <tree string="iti_manger">
+                     <field name="pic"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="salary" />
+                    <field name="gender" required="1"/>
+                    <field name="faculty"/>
+                    <field name="grade"/>
+                    <field name="graduation_year"/>
+                    <field name="info"/>
+                    <field name="accept"/>
+                    <field name="check"/>
+                  <field name="department_id"/>
+                      <field name="skills_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+       <record id="iti_manger_form" model="ir.ui.view">
+            <field name="name">iti.manger.form</field>
+            <field name="model">iti.manger</field>
+            <field name="arch" type="xml">
+                <form string="iti manger" version="7.0">
+                    <group>
+                    <group string="basic info">
+                         <field name="pic"/>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="salary" attrs="{'invisible': [('gender', '=', 'f')]}"/>
+                         <field name="gender" required="1" />
+                    </group>
+                    <group string="education info">
+                        <field name="faculty"/>
+                        <field name="grade"/>
+                        <field name="graduation_year"/>
+                         <field name="department_id"/>
+                         <field name="skills_ids"/>
+                    </group>
+                    </group>
+                    <notebook>
+                        <page string="info">
+                            <field name="info"/>
+                        </page>
+                        <page string="confirm">
+                             <field name="accept"/>
+                            <field name="check"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="iti_manger_action" model="ir.actions.act_window">
+            <field name="name">iti.manger.action</field>
+            <field name="res_model">iti.manger</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+ <record model="ir.ui.view" id="iti_department_tree">
+            <field name="name">iti.department.tree</field>
+            <field name="model">iti.department</field>
+            <field name="arch" type="xml">
+                <tree string="iti_student">
+                    <field name="dname"/>
+                    <field name="desc"/>
+                     <field name="student_ids"/>
+                     <field name="skills_id"/>
+                </tree>
+            </field>
+        </record>
+
+            <menuitem id="hhh_iti" name="iiiiii" string="المقر"/>
+         <menuitem id="side_iti" name="iti" parent="hhh_iti"/>
+
+        <menuitem id="top_iti" name="iti"/>
+        <menuitem id="side_iti" name="iti" parent="top_iti"/>
+        <menuitem id="iti_student"  name="student_data" action="iti_student_action" parent="side_iti" />
+        <menuitem id="iti_department"  name="department_data" action="iti_department_action" parent="side_iti" />
+         <menuitem id="iti_skills"  name="skills_data" action="iti_skills_action" parent="side_iti" />
+
+    </data>
+</openerp>

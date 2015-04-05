@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="project_subcategory_form">
+            <field name="name"></field>
+            <field name="model">project.subcategory</field>
+            <field name="arch" type="xml">
+                <form string="Subcategories" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="code"/>
+
+                            </group>
+                            <group>
+                                <field name="category_id"/>
+                                <field name="subsubcategory_ids"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_subcategory_tree">
+            <field name="name"></field>
+            <field name="model">project.subcategory</field>
+            <field name="arch" type="xml">
+                <tree string="Subcategories" version="7.0">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="code"/>
+                    <field name="category_id"/>
+                    <field name="subsubcategory_ids"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="project_subsubCategory_form">
+            <field name="name"></field>
+            <field name="model">project.subsubCategory</field>
+            <field name="arch" type="xml">
+                <form string="Subsubcategories" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="code"/>
+
+                            </group>
+                            <group>
+                                <field name="subcategory_id"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="project_subsubCategory_tree">
+            <field name="name"></field>
+            <field name="model">project.subsubCategory</field>
+            <field name="arch" type="xml">
+                <tree string="Subsubcategories" version="7.0">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="code"/>
+                    <field name="subcategory_id"/>
+
+
+                </tree>
+            </field>
+        </record>
+        <record id="iti_student_action" model="ir.actions.act_window">
+            <field name="name">ITI Student</field>
+            <field name="res_model">iti.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+        <menuitem id="top_iti" name="ITI"/>
+        <menuitem id="assiut_menu" name="Assiut" parent="top_iti"/>
+        <menuitem id="student" name="students" parent="assiut_menu" action="iti_student_action"/>
+
+
+    </data>
+</openerp>
+
