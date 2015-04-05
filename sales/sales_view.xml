@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="sales_product_tree" model="ir.ui.view">
+            <field name="name">sales.product.tree</field>
+            <field name="model">sales.product</field>
+            <field name="arch" type="xml">
+                <tree string="Sales Products">
+                    <field name="name"
+                           string="الاسم"/>
+                    <field name="price"/>
+                    <field name="type"/>
+                    <field name="company_name"/>
+                    <field name="image"/>
+                    <field name="production_date"/>
+                    <field name="expiry_date"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="sales_category_tree" model="ir.ui.view">
+            <field name="name">sales.category.tree</field>
+            <field name="model">sales.category</field>
+            <field name="arch" type="xml">
+                <tree string="Category">
+                    <field name="name"
+                           string="الاسم"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sales_category_form">
+            <field name="name">sales.category.form</field>
+            <field name="model">sales.category</field>
+            <field name="arch" type="xml">
+                <form string="Categories" version="7.0">
+                    <sheet>
+                        <group>
+                            <group string="Basic Info">
+                                <field name="name"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sales_category_action" model="ir.actions.act_window">
+            <field name="name">Categories</field>
+            <field name="res_model">sales.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="distrib_top"
+                  name="Distributions"/>
+
+        <menuitem id="select_menu"
+                  name="pro_cats"
+                  parent="distrib_top"/>
+
+        <menuitem id="cat_menu"
+                  name="Category"
+                  action="sales_category_action"
+                  parent="select_menu"/>
+
+
+
+        <record id="sales_subcategory_tree" model="ir.ui.view">
+            <field name="name">sales.subcategory.tree</field>
+            <field name="model">sales.subcategory</field>
+            <field name="arch" type="xml">
+                <tree string="SubCategory">
+                    <field name="name"
+                           string="Sub_Category_Name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sales_subcategory_form">
+            <field name="name">sales.subcategory.form</field>
+            <field name="model">sales.subcategory</field>
+            <field name="arch" type="xml">
+                <form string="SubCategories" version="7.0">
+                    <sheet>
+                        <group>
+                            <group string="Basic Info">
+                                <field name="name"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sales_subcategory_action" model="ir.actions.act_window">
+            <field name="name">SubCategories</field>
+            <field name="res_model">sales.subcategory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="distrib_top"-->
+                  <!--name="Distributions"/>-->
+
+        <menuitem id="select_menu"
+                  name="pro_subcats"
+                  parent="distrib_top"/>
+
+        <menuitem id="subcat_menu"
+                  name="SubCategory"
+                  action="sales_subcategory_action"
+                  parent="select_menu"/>
+
+        **********************************************************
+
+        <record id="sales_subsubcategory_tree" model="ir.ui.view">
+            <field name="name">sales.subsubcategory.tree</field>
+            <field name="model">sales.subsubcategory</field>
+            <field name="arch" type="xml">
+                <tree string="SubSubCategory">
+                    <field name="name"
+                           string="Sub_Sub_Category_Name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sales_subsubcategory_form">
+            <field name="name">sales.subsubcategory.form</field>
+            <field name="model">sales.subsubcategory</field>
+            <field name="arch" type="xml">
+                <form string="SubSubCategories" version="7.0">
+                    <sheet>
+                        <group>
+                            <group string="Basic Info">
+                                <field name="name"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sales_subsubcategory_action" model="ir.actions.act_window">
+            <field name="name">SubSubCategories</field>
+            <field name="res_model">sales.subsubcategory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="distrib_top"-->
+                  <!--name="Distributions"/>-->
+
+        <menuitem id="select_subcatmenu"
+                  name="pro_subsubcats"
+                  parent="distrib_top"/>
+
+        <menuitem id="subsubcat_menu"
+                  name="SubSubCategory"
+                  action="sales_subsubcategory_action"
+                  parent="select_subcatmenu"/>
+
+
+        **********************************************************
+
+
+
+
+    </data>
+</openerp>
