@@ -28,7 +28,7 @@ class project_subsubcategory(orm.Model):
         'name': fields.char('Name', size=30),
         'description': fields.text('Description'),
         'code': fields.integer('Code'),
-        'subcategory_id': fields.many2one('project.subcategory', 'SubSub Category')
+        'subcategory_id': fields.many2one('project.subcategory', 'Sub Category')
 
     }
 class project_warehouse(orm.Model):
