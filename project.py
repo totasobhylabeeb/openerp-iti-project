@@ -16,8 +16,8 @@ class project_subcategory(orm.Model):
         'name': fields.char('Name', size=30),
         'description': fields.text('Description'),
         'code': fields.integer('Code'),
-        'category_id': fields.many2one('project.category', 'Sub Category'),
-        'subsubcategory_ids': fields.one2many('project.subsubcategory', 'subcategory_id', 'SubSub Category')
+        'category_id': fields.many2one('project.category', ' Category'),
+        'subsubcategory_ids': fields.one2many('project.subsubcategory', 'subcategory_id', 'Sub Category')
 
     }
 
