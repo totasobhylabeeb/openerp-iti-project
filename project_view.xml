@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+<record model="ir.ui.view" id="project_employees_tree">
+            <field name="name">project.employees.tree</field>
+            <field name="model">project.employees</field>
+            <field name="arch" type="xml">
+                <tree string="project_employees">
+                     <field name="pic"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="salary" />
+                    <field name="gender" required="1"/>
+                    <field name="check"/>
+                  <field name="warehouse_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+       <record id="project_employees_form" model="ir.ui.view">
+            <field name="name">project.employees.form</field>
+            <field name="model">project.employees</field>
+            <field name="arch" type="xml">
+                <form string="project employees" version="7.0">
+          
+                    <group string="basic info">
+                         <field name="pic"/>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="salary" attrs="{'invisible': [('gender', '=', 'f')]}"/>
+                         <field name="gender" required="1" />
+            
+              
+                    </group>
+                   
+                        <page string="confirm">
+     
+                            <field name="check"/>
+ <field name="warehouse_id"/>
+                        </page>
+                 
+                </form>
+            </field>
+        </record>
+        <record id="project_employees_action" model="ir.actions.act_window">
+            <field name="name">project.employees.action</field>
+            <field name="res_model">project.employees</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <record model="ir.ui.view" id="project_category_form">
             <field name="name"></field>
@@ -116,61 +164,6 @@
                 </tree>
             </field>
         </record>
-        <record id="project_product_tree" model="ir.ui.view">
-            <field name="name">project.product.tree</field>
-            <field name="model">project.product</field>
-            <field name="arch" type="xml">
-                <tree string="Project Products">
-                    <field name="name"
-                           string="الاسم"/>
-                    <field name="price"/>
-                    <field name="type"/>
-                    <field name="company_name"/>
-                    <field name="image"/>
-                    <field name="production_date"/>
-                    <field name="expiry_date"/>
-                    <field name="min"/>
-                    <field name="max"/>
-
-                </tree>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="project_product_form">
-            <field name="name"></field>
-            <field name="model">project.product</field>
-            <field name="arch" type="xml">
-                <form string="Products" version="7.0">
-                    <sheet>
-                        <group>
-                            <field name="image" widget='image' class="oe_left oe_avatar"/>
-                        </group>
-                        <group>
-                            <group string="Basic Info">
-                                <field name="company_name"/>
-                                <field name="name"/>
-                                <field name="price"/>
-                                <field name="code"/>
-                                <field name="min"/>
-                                <field name="max"/>
-
-
-                            </group>
-                            <group string="Education">
-                                <field name="production_date"/>
-                                <field name="expiry_date"/>
-                                <field name="catid"/>
-                                <field name="subcat"/>
-                                <field name="subsubcatid" />
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-
-
         <record model="ir.ui.view" id="project_warehouse_tree">
             <field name="name">project.warehouse.tree</field>
             <field name="model">project.warehouse</field>
