@@ -16,14 +16,8 @@
             <field name="implied_ids"
                    eval="[(4, ref('iti_user'))]"/>
         </record>
-           <record model="res.groups" id="iti_user3" >
-           <field name="name">مدير_عام</field>
-            <field name="category_id" ref="iti_cat"/>
-            <field name="implied_ids"
-                   eval="[(4, ref('iti_user2'))]"/>
-        </record>
            <record model="res.groups" id="iti_user4" >
-           <field name="name">مرئيس_المخازن</field>
+           <field name="name">رئيس_المخازن</field>
             <field name="category_id" ref="iti_cat"/>
             <field name="implied_ids"
                    eval="[(4, ref('iti_user3'))]"/>
@@ -44,3 +38,4 @@
 
     </data>
 </openerp>
+
